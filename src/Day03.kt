@@ -1,20 +1,20 @@
 fun main() {
 
-    fun charToValue(c: Char): Int{
+    fun charToValue(c: Char): Int {
         val points = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        return points.indexOf(c)+1
+        return points.indexOf(c) + 1
     }
 
     fun part1(input: List<String>): Int {
         var priorities = 0
-        for(s in input){
-            val firstCompartment = s.slice(IntRange(0,(s.length/2)-1)).toList()
-            val secondCompartment = s.slice(IntRange(s.length/2,s.length-1)).toList()
+        for (s in input) {
+            val firstCompartment = s.slice(IntRange(0, (s.length / 2) - 1)).toList()
+            val secondCompartment = s.slice(IntRange(s.length / 2, s.length - 1)).toList()
 
             val common = firstCompartment.intersect(secondCompartment.toSet())
             val priority = common.sumOf { charToValue(it) }
 
-            priorities+=priority
+            priorities += priority
         }
 
         return priorities
@@ -23,7 +23,7 @@ fun main() {
     fun part2(input: List<String>): Int {
         val chunks = input.chunked(3)
         var priorities = 0;
-        for(chunk in chunks) {
+        for (chunk in chunks) {
             val common = chunk[0].toSet().intersect(chunk[1].toSet()).intersect(chunk[2].toSet())
             priorities += common.sumOf { charToValue(it) }
         }

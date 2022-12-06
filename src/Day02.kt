@@ -14,7 +14,7 @@ fun toMove(s: String): Moves {
     }
 }
 
-fun toResult(s:String): Results{
+fun toResult(s: String): Results {
     return when (s) {
         "X" -> Results.Loss
         "Y" -> Results.Tie
@@ -91,10 +91,10 @@ fun main() {
             val theirMove = toMove(moves[0])
             val result = toResult(moves[1])
 
-            val myMove = calculateResult(theirMove,result)
+            val myMove = calculateResult(theirMove, result)
 
-            sum+=myMove.score
-            sum+= result.points
+            sum += myMove.score
+            sum += result.points
         }
 
         return sum
