@@ -27,7 +27,7 @@ fun main() {
             val range2 = match.groupValues[3].toInt()..match.groupValues[4].toInt()
             val intersect = range1.intersect(range2)
 
-            if (intersect.isNotEmpty()){
+            if (intersect.isNotEmpty()) {
                 println("pair overlapping: $s")
                 pairsOverlapping++
             }
